@@ -15,7 +15,20 @@
     <main>
         <section class="tasks-section">
             <h2>Tasks</h2>
+
+            <form>
+                <div class="task-input-group">
+                    <label class="task-label" for="task-input">New task</label>
+                    <input type="text" id="task-input" placeholder="What needs to be done?">
+                </div>
+                
+                <button type="submit">Add task</button>
+            </form>
+
+            <ul id="task-list"></ul>
         </section>
     </main>
+    
+    <script src="script.js"></script>
 </body>
 </html>
