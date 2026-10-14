@@ -94,3 +94,8 @@ button {
     border-bottom: 1px solid #303030;
     color: #f2f0ed;
 }
+
+.completed {
+    color: #a6a19b;
+    text-decoration: line-through;
+}

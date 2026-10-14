@@ -14,7 +14,19 @@ taskForm.addEventListener("submit", function(event) {
     }
 
     const taskItem = document.createElement("li");
-    taskItem.textContent = taskText;
+
+    const taskCheckbox = document.createElement("input");
+    taskCheckbox.type = "checkbox";
+
+    const taskTextElement = document.createElement("span");
+    taskTextElement.textContent = taskText;
+
+    taskCheckbox.addEventListener("change", function() {
+        taskTextElement.classList.toggle("completed");
+    });
+
+    taskItem.appendChild(taskCheckbox);
+    taskItem.appendChild(taskTextElement);
 
     taskList.appendChild(taskItem);
 
