@@ -30,6 +30,16 @@ function createTask(text, completed = false) {
     const taskTextElement = document.createElement("span");
     taskTextElement.textContent = text;
 
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "×";
+    deleteButton.type = "button";
+    deleteButton.className = "delete-button";
+
+    deleteButton.addEventListener("click", function() {
+        taskItem.remove();
+        saveTasks();
+    });
+
     if (completed) {
         taskTextElement.classList.add("completed");
     }
@@ -41,6 +51,7 @@ function createTask(text, completed = false) {
 
     taskItem.appendChild(taskCheckbox);
     taskItem.appendChild(taskTextElement);
+    taskItem.appendChild(deleteButton);
 
     return taskItem;
 }

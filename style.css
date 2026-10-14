@@ -93,9 +93,26 @@ button {
     padding: 16px 0;
     border-bottom: 1px solid #303030;
     color: #f2f0ed;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .completed {
-    color: #a6a19b;
+    color: #77716b;
     text-decoration: line-through;
+}
+
+.delete-button {
+    background: none;
+    border: none;
+    color: #a6a19b;
+    padding: 0 4px;
+    font-size: 22px;
+    line-height: 1;
+    margin-left: auto;
+}
+
+.delete-button:hover {
+    color: #f2f0ed;
 }
