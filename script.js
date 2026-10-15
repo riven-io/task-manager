@@ -1,6 +1,11 @@
 const taskForm = document.querySelector("form");
 const taskInput = document.querySelector("#task-input");
 const taskList = document.querySelector("#task-list");
+const emptyMessage = document.querySelector("#empty-message");
+
+function updateEmptyMessage() {
+    emptyMessage.hidden = taskList.children.length > 0;
+}
 
 console.log(taskForm, taskInput, taskList);
 
@@ -37,6 +42,7 @@ function createTask(text, completed = false) {
 
     deleteButton.addEventListener("click", function() {
         taskItem.remove();
+        updateEmptyMessage();
         saveTasks();
     });
 
@@ -66,6 +72,7 @@ function loadTasks() {
 }
 
 loadTasks();
+updateEmptyMessage();
 
 taskForm.addEventListener("submit", function(event) {
     event.preventDefault();
@@ -79,6 +86,7 @@ taskForm.addEventListener("submit", function(event) {
     const taskItem = createTask(taskText);
 
     taskList.appendChild(taskItem);
+    updateEmptyMessage();
 
     taskInput.value = "";
     saveTasks();

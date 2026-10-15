@@ -148,6 +148,16 @@ form button:hover {
     text-decoration: line-through;
 }
 
+/* Empty state */
+
+#empty-message {
+    margin: 24px 0 0;
+    padding: 20px 0;
+    color: #a6a19b;
+    font-size: 14px;
+    text-align: center;
+}
+
 /* Delete button */
 
 .delete-button {
