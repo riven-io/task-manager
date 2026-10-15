@@ -2,9 +2,20 @@ const taskForm = document.querySelector("form");
 const taskInput = document.querySelector("#task-input");
 const taskList = document.querySelector("#task-list");
 const emptyMessage = document.querySelector("#empty-message");
+const taskCounter = document.querySelector("#task-counter");
 
 function updateEmptyMessage() {
     emptyMessage.hidden = taskList.children.length > 0;
+}
+
+function updateTaskCounter() {
+    const tasks = taskList.querySelectorAll("li");
+    const remainingTasks = Array.from(tasks).filter(function(taskItem) {
+        const checkbox = taskItem.querySelector('input[type="checkbox"]');
+        return !checkbox.checked;
+    });
+
+    taskCounter.textContent = remainingTasks.length + " remaining";
 }
 
 console.log(taskForm, taskInput, taskList);
@@ -43,6 +54,7 @@ function createTask(text, completed = false) {
     deleteButton.addEventListener("click", function() {
         taskItem.remove();
         updateEmptyMessage();
+        updateTaskCounter();
         saveTasks();
     });
 
@@ -52,6 +64,7 @@ function createTask(text, completed = false) {
 
     taskCheckbox.addEventListener("change", function() {
         taskTextElement.classList.toggle("completed");
+        updateTaskCounter();
         saveTasks();
     });
 
@@ -73,6 +86,7 @@ function loadTasks() {
 
 loadTasks();
 updateEmptyMessage();
+updateTaskCounter();
 
 taskForm.addEventListener("submit", function(event) {
     event.preventDefault();
@@ -87,6 +101,7 @@ taskForm.addEventListener("submit", function(event) {
 
     taskList.appendChild(taskItem);
     updateEmptyMessage();
+    updateTaskCounter();
 
     taskInput.value = "";
     saveTasks();

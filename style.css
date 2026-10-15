@@ -62,6 +62,14 @@ h2 {
     letter-spacing: -0.4px;
 }
 
+/* Task counter */
+
+#task-counter {
+    margin: -12px 0 24px;
+    color: #a6a19b;
+    font-size: 13px;
+}
+
 /* Task section */
 
 .tasks-section {
