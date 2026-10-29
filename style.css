@@ -122,6 +122,7 @@ button {
     background-color: #722f37;
     color: #f2f0ed;
     border: 1px solid #722f37;
+    border-radius: 3px;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.2s ease, border-color 0.2s ease;
@@ -149,6 +150,45 @@ form button:hover {
     border-bottom: 1px solid #303030;
 }
 
+/* Task checkboxes */
+
+#task-list input[type="checkbox"] {
+    appearance: none;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    border: 1px solid #6b625d;
+    border-radius: 4px;
+    background-color: #111111;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+#task-list input[type="checkbox"]::after {
+    content: "✓";
+    color: #f2f0ed;
+    font-size: 12px;
+    line-height: 1;
+    transform: translateY(-1px) scale(0);
+}
+
+#task-list input[type="checkbox"]:checked {
+    background-color: #722f37;
+    border-color: #722f37;
+}
+
+#task-list input[type="checkbox"]:checked::after {
+    transform: translateY(-1px) scale(1);
+}
+
+#task-list input[type="checkbox"]:focus-visible {
+    outline: 2px solid #a6a19b;
+    outline-offset: 3px;
+}
+
 /* Task states */
 
 .completed {
@@ -169,7 +209,6 @@ form button:hover {
 /* Delete button */
 
 .delete-button {
-    margin-left: auto;
     padding: 0 4px;
     background: none;
     color: #a6a19b;
@@ -180,4 +219,37 @@ form button:hover {
 
 .delete-button:hover {
     color: #f2f0ed;
+}
+
+/* Edit button */
+
+.edit-button {
+    padding: 4px 8px;
+    background: none;
+    color: #a6a19b;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* Save button */
+
+.save-button {
+    color: #f2f0ed;
+    background-color: #722f37;
+    border: 1px solid #722f37;
+}
+
+.save-button:hover {
+    background-color: #873943;
+    border-color: #873943;
+}
+
+/* Task actions */
+
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
 }
